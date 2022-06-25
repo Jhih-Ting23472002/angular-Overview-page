@@ -1,0 +1,68 @@
+/* *{
+  outline:1px solid rgb(100, 100, 100);
+} */
+.account {
+  display: flex;
+  justify-content: space-between;
+  background-color: #00994e;
+  padding: 2vh 20vw;
+  /* flex-direction: column; */
+}
+.btn-secondary {
+  color: #00994e;
+  text-shadow: none;
+  background-color: #fff;
+  border: 0.05rem solid #fff;
+}
+.text-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+.h3_text {
+  color: #fff;
+}
+.account-amount {
+  color: #fff;
+}
+
+/* 白色框 */
+.detail-box {
+  height: 55vh;
+  background: #ffffff;
+  border: 5px solid #ffc107;
+  border-radius: 25px 0px;
+}
+
+.detail-box-button {
+  background: rgba(216, 219, 221, 0.4);
+  height: 38px;
+  width: 154px;
+  border-radius: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(216, 219, 221, 0.4);
+}
+.detail-box-button-text {
+  height: 36px;
+  width: 93px;
+  border-radius: 32px;
+  color: #929DA9;
+  text-align: center;
+  line-height: 34px;
+}
+.gree{
+  background: #25d482;
+  color: #ffffff;
+}
+.detail-box-button-text:hover{
+  background: #25d482;
+  color: #ffffff;
+}
+.line{
+  width: 2px;
+  background-color: rgba(216, 219, 221, 0.4);
+  margin: 30px 0;
+}
