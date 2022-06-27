@@ -14,6 +14,14 @@
   background-color: #fff;
   border: 0.05rem solid #fff;
 }
+.noShow {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
 .text-box {
   display: flex;
   justify-content: space-between;
@@ -44,22 +52,46 @@
   justify-content: center;
   align-items: center;
   border: 1px solid rgba(216, 219, 221, 0.4);
+  position: relative;
+}
+
+.detail-box-button-text-l {
+  height: 36px;
+  width: 93px;
+  border-radius: 32px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 34px;
+  position: absolute;
 }
 .detail-box-button-text {
+  height: 36px;
+  width: 93px;
+  border-radius: 32px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 34px;
+  position: absolute;
+}
+
+.detail-box-button-text-green {
   height: 36px;
   width: 93px;
   border-radius: 32px;
   color: #929DA9;
   text-align: center;
   line-height: 34px;
-}
-.gree{
   background: #25d482;
   color: #ffffff;
+
+  right: 0;
 }
-.detail-box-button-text:hover{
+
+
+.detail-box-button-text:active{
   background: #25d482;
   color: #ffffff;
+  cursor: pointer;
 }
 .line{
   width: 2px;
@@ -96,3 +128,39 @@
   background-color: #8EFB99;
   margin: auto 0;
  }
+
+
+
+
+
+
+
+ .button-area {
+  position: relative;
+}
+
+.days-button {
+  border-radius: 20px 0  0 20px;
+  width: 100px;
+  height: 30px;
+  border: none;
+  /* line-height: 30px; */
+}
+
+.days-button:last-child {
+  border-radius: 0 20px 20px 0;
+}
+
+.control-button {
+  width: 100px;
+  height: 30px;
+  background-color: #25D482;
+  border-radius: 20px;
+  position: absolute;
+  line-height: 30px;
+  color: white;
+}
+
+.btnToRight {
+  right: 0;
+}

@@ -1,7 +1,8 @@
 <div class="account">
   <div class="account-card">
-    <button type="button" class="btn btn-lg btn-secondary m-3">
-      臺幣帳戶 <span><i class="fa-solid fa-eye"></i></span>
+    <button type="button" class="btn btn-lg btn-secondary m-3" (click)="show = !show;noShow=!noShow">
+      臺幣帳戶 <span  [ngClass]="{ 'noShow': !show }"><i class="fa-solid fa-eye-slash"></i></span>
+      <span  [ngClass]="{ 'noShow': !noShow }"><i class="fa-solid fa-eye"></i></span>
     </button>
     <button type="button" class="btn btn-lg btn-secondary m-3">
       外幣帳戶 <span><i class="fa-solid fa-eye-slash"></i></span>
@@ -11,9 +12,10 @@
     </button>
     <div class="text-box">
       <h3 class="h3 h3_text">臺幣資產總額:</h3>
-      <i class="fa-solid fa-eye"></i>
+      <span  [ngClass]="{ 'noShow': !show }"><i class="fa-solid fa-eye-slash"></i></span>
+      <span  [ngClass]="{ 'noShow': !noShow }"><i class="fa-solid fa-eye"></i></span>
     </div>
-    <p class="h1 pt-5 account-amount" align="right">$24,055</p>
+    <p class="h1 pt-5 account-amount" align="right" [ngClass]="{ 'noShow': !noShow }">$24,055</p>
   </div>
   <div class="">
     <img src="assets/image/Group 58.png" alt="" />
@@ -26,14 +28,24 @@
         <div class="detail-box-left-text d-flex">
           <P class="m-auto">免費跨轉剩餘次數 :3 &nbsp;&nbsp;&nbsp;</P>
           <P class="m-auto">免費跨提剩餘次數 :5</P>
-          <div class="detail-box-button ml-5 ">
-            <div class="detail-box-button-text gree">
+          <!-- <div class="detail-box-button ml-5 ">
+            <div class="detail-box-button-text">
               <p>14天</p>
+              (click)="green=!green" [ngClass]="green ? 'detail-box-button-text' : 'detail-box-button-text-green'"
             </div>
-            <div class="detail-box-button-text ">
+            <div  class="detail-box-button-text-r">
               <p>30天</p>
             </div>
+            <div class="detail-box-button-text-green">{{30}}</div>
+          </div> -->
+
+          <div class="button-area text-right ml-4">
+            <div class="control-button px-3 text-center" [class.btnToRight]="transform">{{'近'+days+'天'}}</div>
+            <button class="days-button px-3" style="background-color: #e7e5e5" (click)="filterData($event)">近<span>14</span>天</button>
+            <button class="days-button px-3" style="background-color: #e7e5e5" (click)="filterData($event)">近<span>30</span>天</button>
           </div>
+
+
         </div>
         <div class="detail-box-left-text d-flex">
           <P >日期</P>
