@@ -9,7 +9,8 @@ export class AccountcardComponent implements OnInit {
 
   show: boolean = false;//眼睛開關
   noShow: boolean = true; //眼睛開關
-  // green: boolean = false;
+  greenclass: boolean = true;
+  green: boolean = false;
   // green2: boolean = false;
 
   days:string = '14'; //天數
@@ -29,6 +30,13 @@ export class AccountcardComponent implements OnInit {
       this.transform = false;
     }
   }
+  greenfilter($event: any){
+   if(this. green = false){
+    this.greenclass = true;
+  }else {
+    this.green = true;
+  }
+}
 
 
 

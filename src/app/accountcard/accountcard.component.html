@@ -28,21 +28,11 @@
         <div class="detail-box-left-text d-flex">
           <P class="m-auto">免費跨轉剩餘次數 :3 &nbsp;&nbsp;&nbsp;</P>
           <P class="m-auto">免費跨提剩餘次數 :5</P>
-          <!-- <div class="detail-box-button ml-5 ">
-            <div class="detail-box-button-text">
-              <p>14天</p>
-              (click)="green=!green" [ngClass]="green ? 'detail-box-button-text' : 'detail-box-button-text-green'"
-            </div>
-            <div  class="detail-box-button-text-r">
-              <p>30天</p>
-            </div>
-            <div class="detail-box-button-text-green">{{30}}</div>
-          </div> -->
           <div class="detail-box-button ml-5 ">
-            <div class="detail-box-button-text gree">
+            <div class="detail-box-button-text " (click)="greenfilter($event)" [class.greenClass]="greenclass">
               <p>14天</p>
             </div>
-            <div class="detail-box-button-text ">
+            <div class="detail-box-button-text " (click)="greenfilter($event)" [class.greenClass]="green">
               <p>30天</p>
             </div>
           </div>

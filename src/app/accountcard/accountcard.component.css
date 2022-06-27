@@ -53,6 +53,7 @@
   align-items: center;
   border: 1px solid rgba(216, 219, 221, 0.4);
 }
+
 .detail-box-button-text {
   height: 36px;
   width: 93px;
@@ -60,10 +61,13 @@
   color: #929DA9;
   text-align: center;
   line-height: 34px;
+  cursor: pointer;
 }
-.gree{
+
+.greenClass{
   background: #25d482;
   color: #ffffff;
+  cursor: pointer;
 }
 .detail-box-button-text:hover{
   background: #25d482;
