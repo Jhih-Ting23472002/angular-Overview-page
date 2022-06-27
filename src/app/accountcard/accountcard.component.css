@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   background-color: #00994e;
-  padding: 2vh 20vw;
+  padding: 2% 10%;
   /* flex-direction: column; */
 }
 .btn-secondary {
@@ -29,7 +29,7 @@
 
 /* 白色框 */
 .detail-box {
-  height: 55vh;
+  /* height: 55vh; */
   background: #ffffff;
   border: 5px solid #ffc107;
   border-radius: 25px 0px;
@@ -66,3 +66,33 @@
   background-color: rgba(216, 219, 221, 0.4);
   margin: 30px 0;
 }
+.ul-box{
+  list-style:none;
+  margin:10px auto;
+  padding: 0 80px;
+}
+
+ .red{
+  width: 10px;
+  height: 10px;
+  background-color:#F78EBD;
+  margin: auto 0;
+ }
+ .blue{
+  width: 10px;
+  height: 10px;
+  background-color:#9197F2;
+  margin: auto 0;
+ }
+ .yellow{
+  width: 10px;
+  height: 10px;
+  background-color:#FEC133;
+  margin: auto 0;
+ }
+ .green{
+  width: 10px;
+  height: 10px;
+  background-color: #8EFB99;
+  margin: auto 0;
+ }
