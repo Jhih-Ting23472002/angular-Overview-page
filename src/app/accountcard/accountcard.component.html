@@ -1,8 +1,8 @@
 <div class="account">
   <div class="account-card">
     <button type="button" class="btn btn-lg btn-secondary m-3" (click)="show = !show;noShow=!noShow">
-      臺幣帳戶 <span  [ngClass]="{ 'noShow': !show }"><i class="fa-solid fa-eye-slash"></i></span>
-      <span  [ngClass]="{ 'noShow': !noShow }"><i class="fa-solid fa-eye"></i></span>
+      臺幣帳戶 <span [ngClass]="{ 'noShow': !show }"><i class="fa-solid fa-eye-slash"></i></span>
+      <span [ngClass]="{ 'noShow': !noShow }"><i class="fa-solid fa-eye"></i></span>
     </button>
     <button type="button" class="btn btn-lg btn-secondary m-3">
       外幣帳戶 <span><i class="fa-solid fa-eye-slash"></i></span>
@@ -12,8 +12,8 @@
     </button>
     <div class="text-box">
       <h3 class="h3 h3_text">臺幣資產總額:</h3>
-      <span  [ngClass]="{ 'noShow': !show }"><i class="fa-solid fa-eye-slash"></i></span>
-      <span  [ngClass]="{ 'noShow': !noShow }"><i class="fa-solid fa-eye"></i></span>
+      <span [ngClass]="{ 'noShow': !show }"><i class="fa-solid fa-eye-slash"></i></span>
+      <span [ngClass]="{ 'noShow': !noShow }"><i class="fa-solid fa-eye"></i></span>
     </div>
     <p class="h1 pt-5 account-amount" align="right" [ngClass]="{ 'noShow': !noShow }">$24,055</p>
   </div>
@@ -30,28 +30,19 @@
           <P class="m-auto">免費跨提剩餘次數 :5</P>
           <div class="detail-box-button ml-5 ">
             <div class="detail-box-button-text " (click)="greenfilter($event)" [class.greenClass]="greenclass">
-              <p>14天</p>
+              <p><span>{{date14}}</span>天</p>
             </div>
             <div class="detail-box-button-text " (click)="greenfilter($event)" [class.greenClass]="green">
-              <p>30天</p>
+              <p><span>{{date30}}</span>天</p>
             </div>
           </div>
-
-          <div class="button-area text-right ml-4">
-            <div class="control-button px-3 text-center" [class.btnToRight]="transform">{{'近'+days+'天'}}</div>
-            <button class="days-button px-3" style="background-color: #e7e5e5" (click)="filterData($event)">近<span>14</span>天</button>
-            <button class="days-button px-3" style="background-color: #e7e5e5" (click)="filterData($event)">近<span>30</span>天</button>
-          </div>
-
-
         </div>
         <div class="detail-box-left-text d-flex">
-          <P >日期</P>
+          <P>日期</P>
           <P class="ml-4">摘要 / 金額</P>
         </div>
         <div class="">
-          <app-card></app-card>
-          <app-card></app-card>
+          <app-card *ngFor='let d of itemList' [data]=d></app-card>
         </div>
       </div>
     </div>
@@ -59,10 +50,18 @@
     <div class="detail-box-right">
       <img src="assets/image/Chart 2.png" alt="">
       <ul class="ul-box ">
-        <li class="d-flex li-box "><div class="red "></div>近14天收支</li>
-        <li class="d-flex li-box"><div class="blue"></div>近14天轉入金額</li>
-        <li class="d-flex li-box"><div class="yellow"></div>近14天轉出金額</li>
-        <li class="d-flex li-box"><div class="green"></div>近14天利息</li>
+        <li class="d-flex li-box ">
+          <div class="red "></div>近14天收支
+        </li>
+        <li class="d-flex li-box">
+          <div class="blue"></div>近14天轉入金額
+        </li>
+        <li class="d-flex li-box">
+          <div class="yellow"></div>近14天轉出金額
+        </li>
+        <li class="d-flex li-box">
+          <div class="green"></div>近14天利息
+        </li>
       </ul>
     </div>
   </div>

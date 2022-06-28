@@ -1,48 +1,61 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ItemService } from '../item.service';
 
 @Component({
   selector: 'app-accountcard',
   templateUrl: './accountcard.component.html',
-  styleUrls: ['./accountcard.component.css']
+  styleUrls: ['./accountcard.component.css'],
+  providers: [ItemService]
 })
 export class AccountcardComponent implements OnInit {
+  itemList: { date: string; detail: string; money: number; }[] = []; //帳戶明細
 
   show: boolean = false;//眼睛開關
   noShow: boolean = true; //眼睛開關
   greenclass: boolean = true;
   green: boolean = false;
-  // green2: boolean = false;
 
-  days:string = '14'; //天數
-  transform:boolean = false; //按鈕切換css控制
-
-  constructor() { }
+  date14: string = "14"
+  date30: string = "30"
 
 
-  filterData($event: any){
-    const days = ($event.currentTarget.childNodes)[1].innerHTML;
-    this.days = days;
 
-
-    if(days === '30'){
-      this.transform = true;
-    }else {
-      this.transform = false;
-    }
+  constructor(private itemService: ItemService) {
   }
-  greenfilter($event: any){
-   if(this. green = false){
-    this.greenclass = true;
-  }else {
-    this.green = true;
-  }
-}
-
 
 
   ngOnInit(): void {
-
+    this.getAllData()
 
   }
+
+  greenfilter($event: any) {
+    const today = new Date();
+    console.log(today);
+    console.log($event.currentTarget);
+    // const filterData =
+
+
+
+    if (this.green == false) {
+      this.green = true;
+      this.greenclass = false;
+    } else {
+      this.green = false;
+      this.greenclass = true;
+    }
+  }
+
+  //拿取所有資料
+  getAllData() {
+    this.itemService.getAllData().subscribe(items => {
+      console.log(items);
+      this.itemList = items
+    }
+
+    )
+  }
+
+
 
 }

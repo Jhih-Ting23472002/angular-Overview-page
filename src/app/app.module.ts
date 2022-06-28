@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 import { CardComponent } from './card/card.component';
 import { AccountcardComponent } from './accountcard/accountcard.component';
+import { ItemService } from './item.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { AccountcardComponent } from './accountcard/accountcard.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
