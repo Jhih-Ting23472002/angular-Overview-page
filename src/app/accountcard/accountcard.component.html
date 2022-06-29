@@ -4,12 +4,12 @@
       臺幣帳戶 <span [ngClass]="{ 'noShow': !show }"><i class="fa-solid fa-eye-slash"></i></span>
       <span [ngClass]="{ 'noShow': !noShow }"><i class="fa-solid fa-eye"></i></span>
     </button>
-    <button type="button" class="btn btn-lg btn-secondary m-3">
-      外幣帳戶 <span><i class="fa-solid fa-eye-slash"></i></span>
-    </button>
-    <button type="button" class="btn btn-lg btn-secondary m-3">
-      數位帳戶 <span><i class="fa-solid fa-eye-slash"></i></span>
-    </button>
+    <p class="btn btn-lg btn-secondary m-3" (click)="eye =! eye">
+      外幣帳戶 <span *ngIf="eye else noData "><i class="fa-solid fa-eye-slash"></i></span><ng-template #noData><i class="fa-solid fa-eye"></i></ng-template>
+    </p>
+    <p class="btn btn-lg btn-secondary m-3" (click)="eye2 =! eye2">
+      數位帳戶 <span *ngIf="eye2 else noData "><i class="fa-solid fa-eye-slash"></i></span><ng-template #noData><i class="fa-solid fa-eye"></i></ng-template>
+    </p>
     <div class="text-box">
       <h3 class="h3 h3_text">臺幣資產總額:</h3>
       <span [ngClass]="{ 'noShow': !show }"><i class="fa-solid fa-eye-slash"></i></span>
@@ -51,16 +51,16 @@
       <img src="assets/image/Chart 2.png" alt="">
       <ul class="ul-box ">
         <li class="d-flex li-box ">
-          <div class="red "></div>近14天收支
+          <div class="red "></div>近{{this.howManyDays}}天收支
         </li>
         <li class="d-flex li-box">
-          <div class="blue"></div>近14天轉入金額
+          <div class="blue"></div>近{{this.howManyDays}}天轉入金額
         </li>
         <li class="d-flex li-box">
-          <div class="yellow"></div>近14天轉出金額
+          <div class="yellow"></div>近{{this.howManyDays}}天轉出金額
         </li>
         <li class="d-flex li-box">
-          <div class="green"></div>近14天利息
+          <div class="green"></div>近{{this.howManyDays}}天利息
         </li>
       </ul>
     </div>

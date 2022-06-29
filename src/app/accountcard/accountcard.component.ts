@@ -14,6 +14,9 @@ export class AccountcardComponent implements OnInit {
   noShow: boolean = true; //眼睛開關
   greenclass: boolean = true;
   green: boolean = false;
+  eye: boolean = true;
+  eye2: boolean = true;
+  howManyDays:number = 30
 
 
 
@@ -28,6 +31,7 @@ export class AccountcardComponent implements OnInit {
 
   }
 
+  //塞選資料筆數
   greenfilter(v:number) {
     const today = new Date();
     this.itemService.getAllData().subscribe(items =>this.itemList = items)
@@ -35,10 +39,12 @@ export class AccountcardComponent implements OnInit {
     if (v == 14) {
       const filterDay =new Date(today.setDate(today.getDate() - Number(v)));
       // console.log("filterDay14",filterDay);
+      this.howManyDays =Number(v)
       this.itemList = this.itemList.filter(data => {return new Date(data.date) >= filterDay})
     }else  {
       const filterDay30 =new Date(today.setDate(today.getDate() - Number(v)));
       // console.log(this.date30);
+      this.howManyDays =Number(v)
       this.itemList = this.itemList.filter(data => {return new Date(data.date) >= filterDay30})
     }
 
