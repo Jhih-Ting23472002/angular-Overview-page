@@ -15,8 +15,7 @@ export class AccountcardComponent implements OnInit {
   greenclass: boolean = true;
   green: boolean = false;
 
-  date14: string = "14"
-  date30: string = "30"
+
 
 
 
@@ -25,18 +24,25 @@ export class AccountcardComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getAllData()
+    this.greenfilter(30)
 
   }
 
-  greenfilter($event: any) {
+  greenfilter(v:number) {
     const today = new Date();
-    console.log(today);
-    console.log($event.currentTarget);
-    // const filterData =
+    this.itemService.getAllData().subscribe(items =>this.itemList = items)
+    // console.log(today);
+    if (v == 14) {
+      const filterDay =new Date(today.setDate(today.getDate() - Number(v)));
+      // console.log("filterDay14",filterDay);
+      this.itemList = this.itemList.filter(data => {return new Date(data.date) >= filterDay})
+    }else  {
+      const filterDay30 =new Date(today.setDate(today.getDate() - Number(v)));
+      // console.log(this.date30);
+      this.itemList = this.itemList.filter(data => {return new Date(data.date) >= filterDay30})
+    }
 
-
-
+    // 判斷按鈕
     if (this.green == false) {
       this.green = true;
       this.greenclass = false;
@@ -49,13 +55,12 @@ export class AccountcardComponent implements OnInit {
   //拿取所有資料
   getAllData() {
     this.itemService.getAllData().subscribe(items => {
-      console.log(items);
+      // console.log(items);
       this.itemList = items
     }
 
     )
   }
-
 
 
 }
