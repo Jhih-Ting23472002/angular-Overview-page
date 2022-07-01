@@ -1,24 +1,27 @@
 <div class="account">
   <div class="account-card">
-    <button type="button" class="btn btn-lg btn-secondary m-3" (click)="show = !show;noShow=!noShow">
-      臺幣帳戶 <span [ngClass]="{ 'noShow': !show }"><i class="fa-solid fa-eye-slash"></i></span>
-      <span [ngClass]="{ 'noShow': !noShow }"><i class="fa-solid fa-eye"></i></span>
-    </button>
-    <p class="btn btn-lg btn-secondary m-3" (click)="eye =! eye">
-      外幣帳戶 <span *ngIf="eye else noData "><i class="fa-solid fa-eye-slash"></i></span><ng-template #noData><i class="fa-solid fa-eye"></i></ng-template>
+    <select class="btn btn-lg btn-secondary m-3"
+      (click)="show = !show;noShow=!noShow;accountshow($event,0);accountsfilter($event)">
+      <option value={{i}} *ngFor="let a of accountsList , let i = index" >{{a.account}}</option>
+    </select>
+    <p class="btn btn-lg btn-secondary m-3" (click)="accountshow($event,1);amountShow =!amountShow">
+      外幣帳戶
     </p>
-    <p class="btn btn-lg btn-secondary m-3" (click)="eye2 =! eye2">
-      數位帳戶 <span *ngIf="eye2 else noData "><i class="fa-solid fa-eye-slash"></i></span><ng-template #noData><i class="fa-solid fa-eye"></i></ng-template>
+    <p class="btn btn-lg btn-secondary m-3" (click)="accountshow($event,2);amountShow =!amountShow">
+      數位帳戶
     </p>
     <div class="text-box">
-      <h3 class="h3 h3_text">臺幣資產總額:</h3>
-      <span [ngClass]="{ 'noShow': !show }"><i class="fa-solid fa-eye-slash"></i></span>
-      <span [ngClass]="{ 'noShow': !noShow }"><i class="fa-solid fa-eye"></i></span>
+      <h3 class="h3 h3_text">{{accountInHtml}}資產總額:</h3>
+      <span (click)="show = !show;noShow=!noShow" [ngClass]="{ 'noShow': !show }"><i
+          class="fa-solid fa-eye-slash"></i></span>
+      <span (click)="show = !show;noShow=!noShow" [ngClass]="{ 'noShow': !noShow }"><i
+          class="fa-solid fa-eye"></i></span>
     </div>
-    <p class="h1 pt-5 account-amount" align="right" [ngClass]="{ 'noShow': !noShow }">$24,055</p>
+    <p class="h1 pt-5 account-amount" align="right" *ngIf="!show">{{amount |currency: '$':'symbol':
+      '0.0-0'}}</p>
   </div>
   <div class="">
-    <img src="assets/image/Group 58.png" alt="" />
+    <img src="assets/image/{{accountImg}}" alt="" />
   </div>
 </div>
 <div class="account">

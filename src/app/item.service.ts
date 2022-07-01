@@ -30,13 +30,23 @@ export class ItemService {
     { date: '2022,05,05', detail: '現金提', money: -1000 },
   ]
 
+
+  accounts = [
+    { account: '臺幣帳戶', money: 24055, img: 'Group 58.png' },
+    { account: '1234-5678-9101-1213', money: 44055, img: 'Group 58.png' },
+    { account: '1234-5678-9101-1214', money: 7055, img: 'card2.png' },
+    { account: '1234-5678-9101-1215', money: 8055, img: 'card3.png' },
+  ]
+
   constructor() { }
 
-  getAllData(){
+  getAllData() {
     return of(this.details)
   }
-
-
+  
+  getAllAccounts() {
+    return of(this.accounts)
+  }
 
 
 }
